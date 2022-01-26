@@ -1,0 +1,86 @@
+.logo {
+    width: 40px;
+
+}
+
+body {
+    /* background: url('../images/bg3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; */
+    background: black;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+#header{
+    position:sticky;
+    z-index: 1;
+}
+
+.footer{
+    position:relative;
+    bottom: 0;
+}
+
+
+#main,#about,#services,#contact{
+    background: black;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+
+a {
+    color: white;
+}
+
+
+.header {
+    position: fixed;
+    width: 100%;
+
+}
+
+.flex-container {
+    display: flex;
+    background: chocolate;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 10px;
+
+}
+
+.flex-item {
+    flex: 1;
+
+
+}
+
+.flex-item img {
+    width: 100%;
+}
+
+/* .flex-item>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    
+}
+
+.flex-item div p{
+    width: 50%;
+}
+
+.flex-item>img{
+    width:auto
+} */
