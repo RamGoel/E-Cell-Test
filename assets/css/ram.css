@@ -1,0 +1,720 @@
+
+/* Ram's CSS Started */
+
+/* General */
+
+/* body {
+  background: url('../im1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  font-size: 13px;
+  flex-wrap: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+.backOverlay {
+    height: 100vh;
+    background-color: black;
+    width: 100vw;
+    position: absolute;
+    opacity: 80%;
+    z-index: -1;
+  }
+  
+  
+  .darkBg {
+    background: #121212 !important;
+    color: white !important;
+  }
+  
+  .lightBg {
+    background: white !important;
+    color: black !important;
+  }
+  
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  
+  
+  .dropOpen {
+    max-height: 700px !important;
+    opacity: 1 !important;
+  }
+  
+  .viewInputs {
+    max-height: 700px !important;
+    opacity: 1 !important;
+  }
+  
+  
+  .viewSide {
+    max-width: 200px !important;
+    opacity: 1 !important;
+    padding: 5px !important;
+  }
+  
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .dBlock {
+    display: block !important;
+  }
+  
+  .dNone {
+    display: none !important;
+  }
+  
+  .container {
+    width: 90%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  
+  .scaleItem:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+  
+  
+  .bgb {
+    background: linear-gradient(#004cff, #3800ff);
+    color: white;
+  }
+  
+  
+  
+  
+  
+  /* Home */
+  
+  
+  .homeDiv {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  
+  .homeTitle {
+    font-size: 90px;
+    padding: 10px;
+    text-shadow: 0px 2px 10px black;
+    border-radius: 10px;
+    color: white;
+    margin: 0;
+  
+  
+  }
+  
+  .homePara {
+    font-size: 25px;
+    margin: auto;
+    padding: 5px;
+    color: black;
+    width: fit-content;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  
+  
+  
+  
+  /* sideBar */
+  
+  .sideBar {
+  
+    transition: 0.5s;
+    background: linear-gradient(white, rgb(206, 206, 206));
+    padding: 5px;
+    min-height: 98vh;
+    box-shadow: 1px 2px 20px #0000001e;
+  
+  }
+  
+  
+  
+  
+  .sideBarBtn {
+    background: linear-gradient(#004cff, #3800ff);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 7px 10px;
+    float: right;
+    margin: 5px 15px;
+    box-sizing: border-box;
+  
+  }
+  
+  .sideBarItem {
+  
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 1px 2px 20px #00000036;
+    padding: 10px;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    margin: 10px 0px
+  }
+  
+  .sideBarItem:hover .sideBarItemToolTip {
+    max-width: 1000px;
+    opacity: 1;
+  }
+  
+  .sideBarItemToolTip {
+    max-width: 0;
+    opacity: 0;
+    transition: 0.5s;
+    color: black;
+    position: absolute;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    left: 60px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* DropDown */
+  
+  
+  
+  .dropList {
+  
+  
+    display: block;
+    transition: 0.5s;
+    max-height: 0;
+    opacity: 0;
+    position: absolute;
+    left: 50px;
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+  
+  
+  }
+  
+  .dropItem {
+  
+    width: 200px;
+    background-color: #004cff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 2px 20px #00000036;
+    padding: 15px 10px;
+    margin: 5px 5px;
+    color: white;
+    cursor: pointer;
+  
+  
+  }
+  
+  .dropItem:hover {
+    background-color: rgb(214, 207, 207);
+    transition: 0.5s;
+  }
+  
+  
+  
+  
+  
+  /* dashBoard */
+  
+  .dashBoard {
+    flex-grow: 1;
+  }
+  
+  
+  
+  /* navBar */
+  
+  
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2px 5px;
+    background: rgb(255, 0, 0);
+    color: black;
+    flex-grow: 1;
+    border-radius: 5px;
+    margin: 5px 15px;
+  
+  }
+  
+  .navHead {
+    font-weight: 100;
+  }
+  
+  @media screen and (max-width:600px) {
+    .navHead {
+      display: none;
+    }
+  
+  }
+  
+  
+  .navLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navRight {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .navLeft i,
+  .navRight i {
+    margin: 0px 10px;
+  }
+  
+  
+  
+  
+  .navSearch {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #004cff;
+    flex-grow: 1;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .navSearchBtn:hover {
+    background: linear-gradient(#004cff, #3700ffdc);
+    cursor: pointer;
+    color: white;
+  
+  }
+  
+  .navSearchBtn {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* Upload Section */
+  
+  
+  
+  .formDiv {
+    box-shadow: 1px 2px 20px #0000001e;
+    background: white;
+    border-radius: 10px;
+    margin: 5px 15px;
+    padding: 5px;
+    display: flex;
+    min-height: 75vh;
+  }
+  
+  .dashTitle {
+    text-align: center;
+  }
+  
+  
+  #catoDiv {
+    margin: 5px 10px;
+    padding: 5px;
+    width: 30%;
+  
+  }
+  
+  
+  @media screen and (max-width:768px) {
+    #catoDiv {
+      width: 100%;
+    }
+  
+    #home_section img {
+      width: 90% !important;
+    }
+  
+    .formDiv {
+      flex-direction: column;
+    }
+  
+    .formContainer {
+      margin: 5px !important;
+    }
+  }
+  
+  @media screen and (max-width:370px) {
+    .inputDiv {
+      flex-direction: column;
+      text-align: left;
+      justify-content: left;
+    }
+  }
+  
+  .formDiv p {
+    font-weight: 500;
+  }
+  
+  .formContainer {
+    margin: 10px !important;
+  
+  }
+  
+  .inputDropDown {
+    max-height: 0;
+    opacity: 1;
+    transition: 1s;
+    z-index: 0;
+    display: block;
+  }
+  
+  
+  #uploadSection {
+    flex-grow: 1;
+    transition: all 0.5s;
+    padding: 10px;
+  
+  }
+  
+  .inputDropDown :focus-visible {
+    background-color: #3800ff;
+    display: none;
+  }
+  
+  h3,
+  h4 {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+  }
+  
+  
+  .inputCategory {
+    padding: 5px;
+    background-color: #3e64ff !important;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  
+  .bgSuccess {
+    background-color: greenyellow;
+  }
+  
+  .inputCategory p {
+    margin: 3px 10px;
+  }
+  
+  .inputDiv:hover {
+    background: rgba(218, 221, 221, 0.27);
+    transition: 0.5s;
+    transform: scale(1.01);
+  }
+  
+  
+  
+  
+  .inputDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px;
+    border-radius: 5px;
+    margin: 5px 0px;
+    background: none;
+  
+  }
+  
+  .inputDiv h3 {
+    font-weight: 100;
+  }
+  
+  .fileInputSpan input {
+  
+    position: fixed;
+    opacity: 0;
+    z-index: 0;
+    max-width: 70px;
+  }
+  
+  
+  .fileInputSpan {
+    background-color: blue;
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  
+  .fileInputSpan i {
+    margin: 0px 5px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* View Files Page */
+  
+  .filesContainer {
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    margin: 5px 15px;
+    border-radius: 10px;
+  
+  }
+  
+  .filesRow {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+  
+  }
+  
+  .fileDiv {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    width: 90%;
+    justify-content: space-between;
+  }
+  
+  .fileText {
+    text-align: start;
+    margin-right: 10px;
+  }
+  
+  .fileTitle {
+    font-size: large;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .filePara {
+    font-size: smaller;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .fileIcons {
+  
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .fileIcons i {
+    margin: 0px 5px;
+  }
+  
+  
+  
+  
+  .fileIcons i:hover {
+    color: #3800ff;
+    transition: 0.5s;
+    transform: scale(1.1);
+  }
+  
+  .fileIcons .icon:hover .fileToolTip {
+    max-width: 1000px;
+    opacity: 1;
+  }
+  
+  .fileToolTip {
+    max-width: 0;
+    opacity: 0;
+    transition: 0.5s;
+    color: black;
+    position: absolute;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+  
+  }
+  
+  
+  
+  
+  /* Profile */
+  
+  
+  
+  .profileDiv {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 15px;
+  }
+  
+  .profileHead {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  
+  }
+  
+  
+  .profileBtn {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    background: #3e64ff !important;
+    color: white;
+  
+  }
+  
+  .profileBtn i {
+    margin-right: 5px;
+  }
+  
+  .profileHead h1 {
+    font-size: 50px;
+  }
+  
+  .profileHead img {
+    border-radius: 100px;
+    border: 2px solid black;
+    box-shadow: 1px 2px 20px #0000001e;
+  }
+  
+  .profileText {
+    background-color: rgb(223, 218, 218);
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .profileList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profileItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .profileItemText {
+    margin: 8px auto;
+  }
+  
+  .profileItemLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profileItemLeft i {
+    margin-right: 5px;
+  }
+  
+  
+  .popInput {
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 0%, 0.187);
+    margin: 10px;
+  }
+  
+  .popup-contain {
+    background-color: black;
+    text-align: center;
+    width: max-content;
+    padding: 20px 0px;
+    border-radius: 10px;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 2;
+    transition: 1s;
+  
+  }
+  
+  #overlayBg {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    transform: 0.5s;
+    animation: scalePop 1s;
+  }
+  
+  @keyframes scalePop {
+    from {
+      scale: 1;
+    }
+  
+    to {
+      scale: 1.1;
+    }
+  }
+  
+  .popBtn {
+    text-align: center;
+    padding: 5px;
+    border: 2px solid white;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    width: 30%;
+    margin: 10px;
+  }
+  
+  .popHead {
+    color: white !important;
+  }
+  
+  /* Ram's CSS Ended */
