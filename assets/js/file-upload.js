@@ -1,104 +1,77 @@
 
 
 
-function fetchFile(fileUrl){
-fetch(fileUrl,{
-  mode: 'cors',
-  headers: {
-    'Access-Control-Allow-Origin':'*'
-  }
-})
-.then(res => res.blob()) // Gets the response and returns it as a blob
-.then(blob => {
-  
-  let objectURL = URL.createObjectURL(blob);
-  const a=document.createElement('a')
-  a.href=objectURL;
-  a.style.display="none"
-  document.body.appendChild(a)
-  a.download="demo.pdf"
-  a.click()
+// function mergeAllPDFs(nameArr) {
 
-})}
+//   var urls = []
+//   if (nameArr.length >= 1) {
+//     console.log(nameArr)
+//     const storageRef = firebase.storage().ref()
+//     let i = 0;
+//     for (i = 0; i < nameArr.length; i++) {
+//       let userName = document.getElementById('user-name-card').innerText
+//       var fileRef = storageRef.child(`${userName}/${nameArr[i]}`);
+//       fileRef.getDownloadURL().then((url) => {
+
+//       urls.push(url)
+//       const form=document.getElementById('fileForm')
+//       const input=document.getElementById('fileUrl')
+//       input.value=url
+//       form.submit()
+//       console.log(i,"URL POSTED")
 
 
-function mergeAllPDFs(nameArr) {
-
-  var urls = []
-  if (nameArr.length >= 1) {
-    console.log(nameArr)
-    const storageRef = firebase.storage().ref()
-    let i = 0;
-    for (i = 0; i < nameArr.length; i++) {
-      let userName = document.getElementById('user-name-card').innerText
-      var fileRef = storageRef.child(`${userName}/${nameArr[i]}`);
-      fileRef.getDownloadURL().then((url) => {
-
-      urls.push(url)
-      const a=document.createElement('a')
-      a.href=url
-      a.id="downloadLink"
-      a.download="demo.pdf"
-      a.target="_blank"
-      document.body.appendChild(a)
-      a.click()
-
-      var xhr=new XMLHttpRequest()
-      xhr.open('POST','/handle',true);
-      xhr.setRequestHeader('Content-Type','application/text')
-      xhr.send(["ashok"])
-
-      }).catch((response) => {
-        alert(response)
-      })
-    }
+//       }).catch((response) => {
+//         alert(response)
+//       })
+//     }
 
     
     
     
-} else {
-    alert("No File Selected")
-  }
+// } else {
+//     alert("No File Selected")
+//   }
 
 
-}
+// }
 
 
-document.getElementById('mainForm').addEventListener('submit', (e) => {
-  e.preventDefault()
-  mergeAllPDFs(names);
-})
+// document.getElementById('mainForm').addEventListener('submit', (e) => {
+//   e.preventDefault()
+//   mergeAllPDFs(names);
+// })
 
-const names = []
+// const names = []
 
-function uploadFile(event, elem) {
-  var uploader = elem.parentElement.previousElementSibling;
-  var elemeFather = elem.parentElement
-  elem.parentElement.innerHTML = `<i class="my-0 fa fa-spinner fa-spin fa-2x "></i>`
-  var file = event.target.files[0];
-  if(file.name!=null || file.name!=""){
-    var storageRef = firebase.storage().ref();
-  let userName = document.getElementById('user-name-card').innerText
-  var fileRef = storageRef.child(`${userName}/${file.name}`);
-  fileRef.put(file).then((result) => {
-    const url = `gs://${result.ref.location.bucket}/${result.ref.location.path}`
-    console.log(url)
-    percentage = (result.bytesTransferred / result.totalBytes) * 100;
-    uploader.value = percentage;
-    if (percentage == 100) {
+// function uploadFile(event, elem) {
+//   var uploader = elem.parentElement.previousElementSibling;
+//   var elemeFather = elem.parentElement
+//   elem.parentElement.innerHTML = `<i class="my-0 fa fa-spinner fa-spin fa-2x "></i>`
+//   var file = event.target.files[0];
+//   if(file.name!=null || file.name!=""){
+//     var storageRef = firebase.storage().ref();
+//   let userName = document.getElementById('user-name-card').innerText
+//   var fileRef = storageRef.child(`${userName}/${file.name}`);
+//   fileRef.put(file).then((result) => {
+//     const url = `gs://${result.ref.location.bucket}/${result.ref.location.path}`
+//     console.log(url)
+//     percentage = (result.bytesTransferred / result.totalBytes) * 100;
+//     uploader.value = percentage;
+//     if (percentage == 100) {
 
-      elemeFather.innerHTML = `<i class="fa fa-lg fa-check"></i><p class="my-0">Uploaded</p>`
-      elemeFather.style.backgroundColor = "green"
-    }
+//       elemeFather.innerHTML = `<i class="fa fa-lg fa-check"></i><p class="my-0">Uploaded</p>`
+//       elemeFather.style.backgroundColor = "green"
+//     }
 
-  })
-  names.push(file.name);
-  }
+//   })
+//   names.push(file.name);
+//   }
   
 
 
 
-}
+// }
 
 function showAllFiles() {
   const container = document.getElementById('allFilesContainer');
@@ -193,3 +166,5 @@ function deleteFile(text) {
 
 
 }
+
+

@@ -18,10 +18,10 @@
     <title>User | Course File Portal</title>
 
     <!--( Favicon )-->
-    <link rel="shortcut icon" href="./assets/img/logo/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/logo/logo.png" type="image/x-icon">
 
     <!--( Internal Styles )-->
-    <link rel="stylesheet" href="./assets/css/user.css">
+    <link rel="stylesheet" href="assets/css/user.css">
     
     
 
@@ -35,7 +35,7 @@
 
         <!-- Start of Sidebar -->
         <nav id="sidebar" class="active">
-            <h1><a href="#" class="logo"><img src="./assets/img/logo/logo.png" width="60px"></a></h1>
+            <h1><a href="#" class="logo"><img src="assets/img/logo/logo.png" width="60px"></a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
                     <a onclick="showhome_section()" href="#home"><span class="fa fa-home"></span> Home</a>
@@ -78,7 +78,7 @@
                         <a class="navbar-brand text-decoration-none d-flex align-items-center" href="#"
                             id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img id="user-profile-photo" src="./assets/img/icon/profile.png" width="35" height="35"
+                            <img id="user-profile-photo" src="assets/img/icon/profile.png" width="35" height="35"
                                 class="rounded-circle">
                             <div class="mx-2">
                                 <span id="user-name-card" class="ml-2 data-cards" style=""></span>
@@ -96,463 +96,36 @@
 
             <!-- Home Section -->
             <section class="row flex-column mx-3" id="home_section" class="">
-                <img src="./assets/img/icon/homeIcon.png" alt="" class=" mx-auto">
+                <img src="assets/img/icon/homeIcon.png" alt="" class=" mx-auto">
                 <h5 class="mx-auto"><b>Course File Portal</b> by Enterpreneurship Cell, CSE Department, ABES Engineering
                     College</h5>
             </section>
 
+
+
             <!-- Dashboard Section -->
             <section id="dashboard_section" class="d-none">
-                <h2 class="ml-4">Dashboard</h2>
+                <h2 class="ml-4">Create a File</h2>
 
-                <form action="/create-file" method="POST" id="mainForm" class="formDiv">
-                    <div id="catoDiv">
+               <form action="/mergepdf" method="POST" enctype="multipart/form-data">
+                   <input id="courseNameInput" name="courseName" type="text" class="form-control my-2" required placeholder="Course Name">
+                   <input id="courseCodeInput" name="courseCode" type="text" class="form-control my-2" required placeholder="Course Code">
+                   <input id="courseSessionInput" name="courseSession" type="text" class="form-control my-2" required placeholder="Course Session">
+                   <input id="courseSemesterInput" name="courseSemester" type="text" class="form-control my-2" required placeholder="Course Semester">
+                   <h5 id="fileNameLabel" class="label display-6 d-block ">Upload a File</h5>
+                   <input id="courseFilesInput" name="courseFiles" type="file" accept=".pdf" multiple="multiple" onchange="fileUpload(this.id)" required>
+                   <button class="btn btn-dark" type="submit">Create Course File</button>
+                   <ul id="uploadedFileList" class="border my-2">
+                        <li id="firstUploadedFileName"><h6 class="display-6 my-2 text-primary">Uploaded Files Show Here</h6></li>
+                   </ul>
 
-                        <div class="  container formContainer ">
+    
 
-                            <div class="  inputCategory " onclick="openInputDrop(1)">
-                                <i class="  fa fa-arrow-right fa-lg "></i>
-                                <p>Mission & Vision</p>
-                            </div>
-                            <div class="  inputDropDown dNone " id="inputDrop1">
-                                <div class="inputDiv bgSuccess">
-                                    <h3> ABES Mission Vision</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="abesMissVision" id="abesMissVision">
-                                        </span></div>
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3> Department Mission Vision</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="deptMissVision" id="deptMissVision">
-                                        </span></div>
-
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                        <div class="  container formContainer ">
-                            <div class="  inputCategory" onclick="openInputDrop(2)">
-                                <i class="  fa fa-arrow-right fa-lg "></i>
-                                <p>Syllabus</p>
-                            </div>
-                            <div class="  inputDropDown dNone" id="inputDrop2">
-                                <div class="  inputDiv">
-                                    <h3> Academic Calender</h3>
-                                    <div class="d-flex align-items-center uploadDiv">
-                                        <progress value="0" max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="acadCalender" id="acadCalender">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3> University Syllabuss</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="uniSyllabus" id="uniSyllabus">
-                                        </span></div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="  container formContainer ">
-                            <div class="  inputCategory" onclick="openInputDrop(3)">
-                                <i class="  fa fa-arrow-right fa-lg "></i>
-                                <p>Time Table/Schedule</p>
-                            </div>
-                            <div class="  inputDropDown dNone" id="inputDrop3">
-                                <div class="  inputDiv">
-                                    <h3> Class Time Table</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="classTimeTable" id="classTimeTable">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3> Faculty Time Table</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="facultyTimeTable" id="facultyTimeTable">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Lecture Plan and Delivery Schedule</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="lecPlan" id="lecPlan">
-                                        </span></div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="  container formContainer ">
-                            <div class="  inputCategory" onclick="openInputDrop(4)">
-                                <i class="  fa fa-arrow-right fa-lg "></i>
-                                <p>Books/Notes & Assignments</p>
-                            </div>
-                            <div class="  inputDropDown dNone" id="inputDrop4">
-                                <div class="  inputDiv">
-                                    <h3>Faculty Notes</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="facultyNotes" id="facultyNotes">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Class PPT's</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="classPPT" id="classPPT">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Assignments</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="assignments" id="assignments">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Course Books</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="courseBook" id="courseBook">
-                                        </span></div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="  container formContainer ">
-                            <div class="  inputCategory" onclick="openInputDrop(5)">
-                                <i class="  fa fa-arrow-right fa-lg "></i>
-                                <p>Question Papers/Answer Keys</p>
-                            </div>
-                            <div class="  inputDropDown dNone" id="inputDrop5">
-                                <div class="  inputDiv">
-                                    <h3>University Previous Year Question Papers</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="uniPreQuestionPaper" id="uniPreQuestionPaper">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3> University Paper Review</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="uniPaperReview" id="uniPaperReview">
-                                        </span></div>
-
-                                </div>
-
-                                <div class="  inputDiv">
-                                    <h3>Sessional Question Papers</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="sessQuestionPaper" id="sessQuestionPaper">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>PUE Question Papers</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="pueQuestionPaper" id="pueQuestionPaper">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Class Test Question Papers</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="ctQuestionPaper" id="ctQuestionPaper">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Answer Keys - Sessional</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="sessAnswerKeys" id="sessAnswerKeys">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Answer Keys - PUE</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="pueAnswerKeys" id="pueAnswerKeys">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Answer Keys - ClassTest</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="ctAnswerKeys" id="ctAnswerKeys">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Answer Keys - University Exams</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="ueAnswerKeys" id="ueAnswerKeys">
-                                        </span></div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="  container formContainer ">
-                            <div class="  inputCategory" onclick="openInputDrop(10)">
-                                <i class="  fa fa-arrow-right fa-lg "></i>
-                                <p>Solution and Marks</p>
-                            </div>
-                            <div class="  inputDropDown dNone" id="inputDrop10">
-                                <div class="  inputDiv">
-                                    <h3>Tutorial Sheets (Numerical Problems)</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="tutorialSheets" id="tutorialSheets">
-                                        </span></div>
-
-                                </div>
-
-                                <div class="  inputDiv">
-                                    <h3>Sessional/PUE Award Sheet</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="awardSheet" id="awardSheet">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Assignment Marks</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="assignMarks" id="assignMarks">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Test Marks</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="testMarks" id="testMarks">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Quizzes Marks</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="quizMarks" id="quizMarks">
-                                        </span></div>
-
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                        <div class="  container formContainer ">
-                            <div class="  inputCategory" onclick="openInputDrop(9)">
-                                <i class="  fa fa-arrow-right fa-lg "></i>
-                                <p>CO's/PO's/PSO's</p>
-                            </div>
-                            <div class="  inputDropDown dNone" id="inputDrop9">
-                                <div class="  inputDiv">
-                                    <h3>Course Exit Survey and Analysis</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="courseExit" id="courseExit">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Overall CO attatinment</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="overallCO" id="overallCO">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Pre-Requisites and Mapping of CO's</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="mappingCO" id="mappingCO">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Sessional/PUE Gap Analysis and CO attatinment</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="gapAnalysis" id="gapAnalysis">
-                                        </span></div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="  container formContainer ">
-                            <div class="  inputCategory" onclick="openInputDrop(10)">
-                                <i class="  fa fa-arrow-right fa-lg "></i>
-                                <p>Students</p>
-                            </div>
-                            <div class="  inputDropDown dNone" id="inputDrop10">
-                                <div class="  inputDiv">
-                                    <h3>List of Students</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="listStudents" id="listStudents">
-                                        </span></div>
-
-                                </div>
-                                <div class="  inputDiv">
-                                    <h3>Weak Students List and their Make up Classes</h3>
-                                    <div class="d-flex align-items-center uploadDiv"><progress value="0"
-                                            max="100"></progress>
-                                        <span onchange="" class="  fileInputSpan">
-                                            <p class="upload-btn-text">Upload</p> <i class="  fa fa-lg fa-upload"></i>
-                                            <input type="file"  accept=".pdf" onchange="uploadFile(event,this)"
-                                                class="fileInputs" name="weakStudents" id="weakStudents">
-                                        </span></div>
-
-                                </div>
-
-
-                            </div>
-
-                        </div>
-
-                        <div class="  container formContainer ">
-                            <button type="submit"  class="  inputCategory btn btn-outline-light text-white " style="background:#2b0505 !important;"
-                                >
-                                <i class="  fa fa-check fa-lg "></i>
-                                <p>Create a File</p>
-                        </button>
-                            <a href="" class="d-none" id="downloadBtn"><button
-                                    class="btn btn-outline-dark my-2">Download File</button></a>
-
-
-                        </div>
-
-                    </div>
-
-                    <div id="uploadSection">
-
-                    </div>
-                </form>
+               </form>
 
             </section>
+
+
 
             <!-- View File Section -->
             <section id="file_section" class="d-none">
@@ -592,6 +165,7 @@
     <!-- Internal JS -->
     <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/file-upload.js"></script>
+    <script src="assets/js/file.js"></script>
     <script src="assets/js/firebase.js"></script>
     <script src="assets/jsuser/profile.js"></script>
     <script src="assets/jsuser/sections.js"></script>
