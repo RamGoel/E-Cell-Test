@@ -9,11 +9,21 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
+app.get('/',(req,res)=>{
+    res.render('index')
+})
 
+app.get('/user',(req,res)=>{
+    res.render('user',{display:"none"})
+})
+
+
+app.set('view engine','ejs')
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname+'/views/'))
 app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/public/'))
 
@@ -54,13 +64,13 @@ var mergepdffilesupload = multer({
     storage: storage
 })
 
-
+let outputFilePath=''
 app.post('/mergepdf', mergepdffilesupload.array('courseFiles', 100), (req, res) => {
 
 
     console.log(req.body)
     const files = []
-    let outputFilePath = `${req.body.courseName}-${req.body.courseCode}-${req.body.courseSemester}-output.pdf`
+    outputFilePath = `${req.body.courseName}-${req.body.courseCode}-${req.body.courseSemester}-output.pdf`
     if (req.files) {
         req.files.forEach(file => {
             console.log(file.path)
@@ -76,18 +86,17 @@ app.post('/mergepdf', mergepdffilesupload.array('courseFiles', 100), (req, res) 
             await merger.save(outputFilePath); //save under given name and reset the internal document
         })();
 
-        res.download(outputFilePath, (err) => {
-            if (err) {
-                // fs.unlinkSync(outputFilePath)
-                res.send("some error Occured")
-            }
-            console.log("Hello")
-        })
+        
+        res.render('user',{display:""})
 
         // fs.unlinkSync(outputFilePath)
         // files.forEach((file) => fs.unlinkSync(file))
     }
 
+})
+
+app.get('/download',(req,res)=>{
+    res.download(outputFilePath)
 })
 
 app.listen(PORT, () => {

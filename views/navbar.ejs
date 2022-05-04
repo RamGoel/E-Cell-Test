@@ -1,0 +1,25 @@
+<!-- Navbar Section -->
+<nav class="navbar justify-content-between">
+    <button type="button" id="sidebarCollapse" class="btn btn-light text-dark">
+      <i class="fa fa-arrow-right"></i>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+    <ul style="list-style-type:none;" class="my-1">
+      <li class="nav-item dropdown">
+        <a class="navbar-brand text-decoration-none d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img id="user-profile-photo" src="assets/img/icon/profile.png" width="35" height="35"
+            class="rounded-circle">
+          <div class="mx-2">
+            <span id="user-name-card" class="ml-2 data-cards" style=""></span>
+            <span id="user-id-card" class="ml-2 data-cards" style=""></span>
+          </div>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a onclick="showdashboard_section()" class="dropdown-item" href="#dashboard">Dashboard</a>
+          <a onclick="showfile_section()" class="dropdown-item" href="#profile">All Files</a>
+          <a onclick="logoutwithprompt()" class="dropdown-item" href="#logout">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </nav>

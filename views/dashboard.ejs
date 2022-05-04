@@ -1,0 +1,30 @@
+
+      <!-- Dashboard Section -->
+      <section id="dashboard_section" class="d-none">
+        <h2 class="ml-4">Create a File</h2>
+
+        <form action="/mergepdf" method="POST" enctype="multipart/form-data">
+          <input id="courseNameInput" name="courseName" type="text" class="form-control my-2" required
+            placeholder="Course Name">
+          <input id="courseCodeInput" name="courseCode" type="text" class="form-control my-2" required
+            placeholder="Course Code">
+          <input id="courseSessionInput" name="courseSession" type="text" class="form-control my-2" required
+            placeholder="Course Session">
+          <input id="courseSemesterInput" name="courseSemester" type="text" class="form-control my-2" required
+            placeholder="Course Semester">
+          <h5 id="fileNameLabel" class="label display-6 d-block ">Upload a File</h5>
+          <input id="courseFilesInput" name="courseFiles" type="file" accept=".pdf" multiple="multiple"
+            onchange="fileUpload(this.id)" required>
+          <button class="btn btn-dark" type="submit">Create Course File</button>
+          <button class="btn btn-dark " type="button"  style="display:<%= display %>" onclick="downloadFile()">Download File</button>
+          <ul id="uploadedFileList" class="border my-2">
+            <li id="firstUploadedFileName">
+              <h6 class="display-6 my-2 text-primary">Uploaded Files Show Here</h6>
+            </li>
+          </ul>
+
+
+
+        </form>
+
+      </section>
